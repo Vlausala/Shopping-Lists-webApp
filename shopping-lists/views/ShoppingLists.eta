@@ -1,17 +1,31 @@
-<h1>My Shopping List</h1>
-	
-<h2>Add a shopping list</h2>    
+<html>
+<head>
+  <title>My Shopping List</title>
+  <meta name="description" content="This is a sample HTML document">
+</head>
+<body>
+<a href="/">Back to mainpage</a> 
+
+<h1>Add a shopping list</h1>    
     
-<form method="POST" action="/shoppinglists">
+<form method="POST" action="/lists">
   Name: <input type="text" name="name" />
   <input type="submit" value="Create shopping list" />
 </form>    
 
 
-<h2>Existing Lists:</h2>
-	
+<h1>Existing Lists:</h1>
+
 <ul>
-<% it.shoppingLists.forEach((list) => { %>
-    <li><%= list.name %></li>
-<% }); %>
+  <% it.shoppingLists.forEach((list) => { %>
+    <li>
+      <a href="/lists/<%= list.id %>"> <%= list.name %> </a> 
+      <form method="POST" action="/lists/<%= list.id %>/deactivate">
+        <input type="submit" value="Deactivate" />
+      </form>
+    </li>
+  <% }); %>
 </ul>
+
+</body>
+</html>

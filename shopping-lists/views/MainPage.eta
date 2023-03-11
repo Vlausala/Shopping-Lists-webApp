@@ -1,0 +1,10 @@
+<html>
+  <head>
+    <title>Shared shopping lists</title>
+  </head>
+  <body>
+    <h1>Welcome to Shopping lists app!</h1>
+    <p>Click the link below to see shopping lists:</p>
+    <a href="/lists">Shopping lists</a>
+  </body>
+</html>
