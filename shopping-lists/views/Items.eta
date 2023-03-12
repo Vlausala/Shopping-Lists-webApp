@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>My Shopping List</title>
+        <meta name="description" content="This is a sample HTML document">
+    </head>
+    <body>
+        <a href="/lists">Shopping lists</a>
+        <h1>Shopping list name:  <%= it.shoppinglistname.name %></h1>
+
+        <h2>Existing items:</h2>
+        <form method="POST" action="/lists/<%= it.ListId %>/items">
+           Add new item: <input type="text" name="itemName" />
+            <input type="submit" value="Add item to list" />
+        </form>
+
+        <ul>
+        <% it.items.forEach((item) => { %>
+            <li> <%= item.name %> </li> 
+        <% }); %>
+        </ul>
+    </body>
+</html>

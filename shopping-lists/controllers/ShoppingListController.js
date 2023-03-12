@@ -19,6 +19,7 @@ const CreateNewList = async (request) => {
     }
 };
 
+
 const ShowLists = async (request) => {
     const data = {shoppingLists: await ListShoppinglist()};
     return new Response(
@@ -26,6 +27,7 @@ const ShowLists = async (request) => {
         responseDetails
     )
 };
+
 
 const DeactivateList = async (request) => {
   const url = new URL(request.url);

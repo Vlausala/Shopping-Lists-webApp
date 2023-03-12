@@ -1,14 +1,14 @@
-import { sql } from "../database/database"
+import { sql } from "../database/database.js"
 
 const listItems = async (id) => {
-    const rows = await sql`
-        SELECT * FROM shopping_list_items
-        WHERE shopping_list_id = ${id}`
+    return await sql`
+    SELECT * FROM shopping_list_items 
+    WHERE shopping_list_id = (${id})`;
+};
 
-        if (rows && rows.length > 0) {
-            return rows[0];
-        }
-}
+const AddListItem = async (shopping_list_id, itemName) => {
+    return await sql`
+    INSERT INTO shopping_list_items (shopping_list_id, name) VALUES (${shopping_list_id}, ${itemName})`;
+};
 
-
-export {listItems}
+export {listItems, AddListItem};

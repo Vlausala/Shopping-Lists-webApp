@@ -24,4 +24,14 @@ const DeactivateShoppinglist = async (id) =>{
     WHERE id = (${id});`;
 }
 
-export {AddShoppinglist, ListShoppinglist, RemoveShoppinglist, DeactivateShoppinglist}
+const GetListName = async (id) => {
+    const rows = await sql`
+    SELECT name FROM shopping_lists
+    WHERE id = (${id})`
+
+    if (rows && rows.length > 0) {
+        return rows[0]
+    }
+}
+
+export {AddShoppinglist, ListShoppinglist, RemoveShoppinglist, DeactivateShoppinglist, GetListName}

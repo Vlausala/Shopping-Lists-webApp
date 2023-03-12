@@ -19,7 +19,7 @@
 <ul>
   <% it.shoppingLists.forEach((list) => { %>
     <li>
-      <a href="/lists/<%= list.id %>"> <%= list.name %> </a> 
+      <a href="/lists/<%= list.id %>/items"> <%= list.name %> </a> 
       <form method="POST" action="/lists/<%= list.id %>/deactivate">
         <input type="submit" value="Deactivate" />
       </form>
