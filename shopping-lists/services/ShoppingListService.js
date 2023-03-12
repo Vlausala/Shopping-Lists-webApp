@@ -30,8 +30,16 @@ const GetListName = async (id) => {
     WHERE id = (${id})`
 
     if (rows && rows.length > 0) {
-        return rows[0]
+        return rows[0];
     }
 }
 
-export {AddShoppinglist, ListShoppinglist, RemoveShoppinglist, DeactivateShoppinglist, GetListName}
+const CountShoppingLists = async () => {
+    const rows = await sql`SELECT COUNT(id) as shoppinglists FROM shopping_lists;`;
+    if (rows && rows.length > 0) {
+        return rows[0];
+    }
+}
+
+export {AddShoppinglist, ListShoppinglist, RemoveShoppinglist,
+     DeactivateShoppinglist, GetListName, CountShoppingLists}

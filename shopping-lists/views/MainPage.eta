@@ -1,10 +1,30 @@
 <html>
+
   <head>
     <title>Shared shopping lists</title>
   </head>
+
   <body>
     <h1>Welcome to Shopping lists app!</h1>
+
     <p>Click the link below to see shopping lists:</p>
     <a href="/lists">Shopping lists</a>
+
+    <h2>Database statistics</h2> 
+
+    <% if (it.shoppinglists.shoppinglists) { %>
+      <p>Shopping lists in database:<%= it.shoppinglists.shoppinglists %></p>
+    <% } else { %>
+      <p> No shopping lists in the database </p>
+    <% } %>
+
+    
+    <% if (it.shoppinglists.shoppinglists) { %>
+      <p>Items in the database: <%= it.items.items%></p>
+    <% } else { %>
+      <p> No shopping lists in the database </p>
+    <% } %>
   </body>
+
+  
 </html>

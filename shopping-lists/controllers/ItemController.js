@@ -1,7 +1,7 @@
 import { renderFile } 
 from "../deps.js";
 
-import { listItems, AddListItem } from "../services/ShoppingListItems.js";
+import { listItems, AddListItem , CollectListItem} from "../services/ShoppingListItems.js";
 import { GetListName } from "../services/ShoppingListService.js";
 
 import { responseDetails, redirectTo  } 
@@ -35,7 +35,17 @@ const AddItem = async (request) => {
     return redirectTo(url.pathname);
 }
 
+const CollectItem = async (request) => {
+
+    const url = new URL(request.url);
+    const ListID = url.pathname.split("/")[2];
+    const ItemID = url.pathname.split("/")[4];
+
+    await CollectListItem(ItemID);
+    return redirectTo(`/lists/${ListID}/items`);
+}
 
 
 
-export { ShowItems, AddItem };
+
+export { ShowItems, AddItem, CollectItem };

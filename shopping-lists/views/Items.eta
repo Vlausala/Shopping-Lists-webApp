@@ -13,10 +13,18 @@
             <input type="submit" value="Add item to list" />
         </form>
 
-        <ul>
+        <ol>
         <% it.items.forEach((item) => { %>
-            <li> <%= item.name %> </li> 
+            <li>
+                <% if (item.collected === true) { %>
+                <del style="text-decoration: line-through;"><%= item.name %></del>
+                <% } else { %>
+                <del style="text-decoration: none;"><%= item.name %></del>
+                <% } %>
+                <form method="POST" action="/lists/<%= item.shopping_list_id %>/items/<%= item.id %>/collect">
+                <input type="submit" value="Mark collected"/></form>
+            </li> 
         <% }); %>
-        </ul>
+        </ol>
     </body>
 </html>

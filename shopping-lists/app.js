@@ -17,7 +17,9 @@ const RedirectFunctionality = (path) => {
 
 const handleRequest = async (request) => {
   const url = new URL(request.url);
-  const id = url.pathname.split("/")[2];
+  const ListID = url.pathname.split("/")[2];
+  const ItemID = url.pathname.split("/")[4];
+  
 
   // Show mainpage
   if (url.pathname === "/" && request.method === "GET") {
@@ -32,16 +34,20 @@ const handleRequest = async (request) => {
     return await ShoppingListController.ShowLists(request);
     
   // Deactivate shopping list
-  } else if (url.pathname === `/lists/${id}/deactivate` && request.method === "POST" ) {
+  } else if (url.pathname === `/lists/${ListID}/deactivate` && request.method === "POST" ) {
     return await ShoppingListController.DeactivateList(request)
 
   // Show items
-  } else if (url.pathname === `/lists/${id}/items` && request.method === "GET" ) {
+  } else if (url.pathname === `/lists/${ListID}/items` && request.method === "GET" ) {
     return await ItemController.ShowItems(request);
 
   // Add new item
-  } else if (url.pathname === `/lists/${id}/items` && request.method === "POST" ) {
+  } else if (url.pathname === `/lists/${ListID}/items` && request.method === "POST" ) {
     return await ItemController.AddItem(request);
+
+  // Collect item
+  } else if (url.pathname === `/lists/${ListID}/items/${ItemID}/collect` && request.method === "POST" ) {
+    return await ItemController.CollectItem(request);
 
   // Redirect back to mainpage
   } else {
