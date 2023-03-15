@@ -2,7 +2,7 @@ FROM denoland/deno:alpine-1.29.2
 
 EXPOSE 7777
 
-WORKDIR /shopping-lists
+WORKDIR /
 
 COPY deps.js .
 
