@@ -38,7 +38,7 @@ const handleRequest = async (request) => {
     return await ShoppingListController.DeactivateList(request)
 
   // Show items
-  } else if (url.pathname === `/lists/${ListID}/items` && request.method === "GET" ) {
+  } else if (url.pathname === `/lists/${ListID}` && request.method === "GET" ) {
     return await ItemController.ShowItems(request);
 
   // Add new item

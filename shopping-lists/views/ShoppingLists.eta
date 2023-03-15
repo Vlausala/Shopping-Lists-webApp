@@ -1,6 +1,6 @@
 <% layout("./layouts/layout.eta") %>
 
-<a href="/">Back to mainpage</a> 
+<a href="/">Main page</a> 
 
 <h1>Add a shopping list</h1>    
     
@@ -16,7 +16,7 @@
 <ul>
   <% it.shoppingLists.forEach((list) => { %>
     <li>
-      <a href="/lists/<%= list.id %>/items" text="name" data-testid="Shoppinglist"> <%= list.name %> </a> 
+      <a href="/lists/<%= list.id %>" text="name" data-testid="Shoppinglist"> <%= list.name %> </a> 
       <form method="POST" action="/lists/<%= list.id %>/deactivate" data-testid="DeactivateButton">
         <input type="submit" value="Deactivate" />
       </form>

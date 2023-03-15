@@ -1,21 +1,21 @@
 <% layout("./layouts/layout.eta") %>
 
-<h1 data-testid="Title">Welcome to Shopping lists app!</h1>
+<h1 data-testid="Title">Shared shopping lists</h1>
 
 <p>Click the link below to see shopping lists:</p>
-<a href="/lists">Shopping lists</a>
+<a href="/lists">Lists</a>
 
 <h2>Database statistics</h2> 
 
-<% if (it.shoppinglists.shoppinglists) { %>
-  <p>Shopping lists in database:<%= it.shoppinglists.shoppinglists %></p>
+<% if (it.shoppinglists.shoppinglists != 0) { %>
+  <p>Shopping lists: <%= it.shoppinglists.shoppinglists %></p>
 <% } else { %>
-  <p> No shopping lists in the database </p>
+  <p> No shopping lists yet </p>
 <% } %>
 
 
-<% if (it.shoppinglists.shoppinglists) { %>
-  <p>Items in the database: <%= it.items.items%></p>
+<% if (it.items.items != 0) { %>
+  <p>Shopping list items: <%= it.items.items%></p>
 <% } else { %>
-  <p> No shopping lists in the database </p>
+  <p> No items yet </p>
 <% } %>

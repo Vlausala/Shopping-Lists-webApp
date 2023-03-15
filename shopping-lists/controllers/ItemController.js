@@ -32,7 +32,7 @@ const AddItem = async (request) => {
     const ItemName = formData.get("itemName");
 
     await AddListItem(ListId, ItemName);
-    return redirectTo(url.pathname);
+    return redirectTo(`/lists/${ListId}`);
 }
 
 const CollectItem = async (request) => {
@@ -42,7 +42,7 @@ const CollectItem = async (request) => {
     const ItemID = url.pathname.split("/")[4];
 
     await CollectListItem(ItemID);
-    return redirectTo(`/lists/${ListID}/items`);
+    return redirectTo(`/lists/${ListID}`);
 }
 
 

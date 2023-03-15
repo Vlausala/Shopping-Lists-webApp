@@ -18,7 +18,7 @@
         <li>
             <del style="text-decoration: none;" data-testid="ListItem1"><%= item.name %></del> 
             <form data-testid="SubmitButton2" method="POST" action="/lists/<%= item.shopping_list_id %>/items/<%= item.id %>/collect"> 
-                <input type="submit" value="Mark collected"/>
+                <input type="submit" value="Mark collected!"/>
             </form>
         </li>
         <%}%>
