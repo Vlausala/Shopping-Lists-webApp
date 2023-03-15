@@ -8,6 +8,6 @@ COPY /shopping-lists/deps.js .
 
 RUN deno cache deps.js
 
-COPY ./shopping-lists/app.js .
+COPY . .
 
 CMD [ "run", "--unstable", "--watch", "--allow-net", "--allow-read", "--allow-env", "--no-check", "app.js" ]
