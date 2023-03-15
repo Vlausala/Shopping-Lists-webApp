@@ -17,7 +17,7 @@
   <% it.shoppingLists.forEach((list) => { %>
     <li>
       <a href="/lists/<%= list.id %>/items" text="name" data-testid="Shoppinglist"> <%= list.name %> </a> 
-      <form method="POST" action="/lists/<%= list.id %>/deactivate">
+      <form method="POST" action="/lists/<%= list.id %>/deactivate" data-testid="DeactivateButton">
         <input type="submit" value="Deactivate" />
       </form>
     </li>

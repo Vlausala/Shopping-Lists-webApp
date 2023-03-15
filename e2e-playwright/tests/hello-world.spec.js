@@ -100,3 +100,26 @@ test('Test if collected item gets crossed over', async ({ page }) => {
 
   expect(Style).toContain("text-decoration: line-through;")
 });
+
+
+
+
+test('Deactivate shopping list', async ({ page }) => {
+  // Navigate to lists
+  await page.goto('/lists');
+
+  // Count shopping lists
+  const count = await page.$$eval("ul > li > a", (elements) => elements.length);
+  console.log(`First count: ${count}`);
+
+  // Deactivate shopping lists
+  const items = await page.$$(`ul > li > form[data-testid="DeactivateButton"] > input[type="submit"]`);
+  const item = items[0];
+  await item.click();
+
+  // Count shopping lists
+  const count2 = await await page.$$eval("ul > li > a", (elements) => elements.length);
+  console.log(`Second count: ${count2}`);
+
+  expect(count === count2);
+});
