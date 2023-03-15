@@ -1,17 +1,14 @@
-<html>
-<head>
-  <title>My Shopping List</title>
-  <meta name="description" content="This is a sample HTML document">
-</head>
-<body>
+<% layout("./layouts/layout.eta") %>
+
 <a href="/">Back to mainpage</a> 
 
 <h1>Add a shopping list</h1>    
     
 <form method="POST" action="/lists">
-  Name: <input type="text" name="name" />
-  <input type="submit" value="Create shopping list" />
+  Name: <input type="text" name="name" data-testid="InputField1"/>
+  <input type="submit" value="Create shopping list" data-testid="SubmitButton1"/>
 </form>    
+
 
 
 <h1>Existing Lists:</h1>
@@ -19,13 +16,10 @@
 <ul>
   <% it.shoppingLists.forEach((list) => { %>
     <li>
-      <a href="/lists/<%= list.id %>/items"> <%= list.name %> </a> 
+      <a href="/lists/<%= list.id %>/items" text="name" data-testid="Shoppinglist"> <%= list.name %> </a> 
       <form method="POST" action="/lists/<%= list.id %>/deactivate">
         <input type="submit" value="Deactivate" />
       </form>
     </li>
   <% }); %>
 </ul>
-
-</body>
-</html>

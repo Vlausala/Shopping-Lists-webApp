@@ -1,30 +1,37 @@
-<html>
-    <head>
-        <title>My Shopping List</title>
-        <meta name="description" content="This is a sample HTML document">
-    </head>
-    <body>
-        <a href="/lists">Shopping lists</a>
-        <h1>Shopping list name:  <%= it.shoppinglistname.name %></h1>
+<% layout("./layouts/layout.eta") %>
 
-        <h2>Existing items:</h2>
-        <form method="POST" action="/lists/<%= it.ListId %>/items">
-           Add new item: <input type="text" name="itemName" />
-            <input type="submit" value="Add item to list" />
-        </form>
+<a href="/lists">Shopping lists</a>
+<h1>Shopping list name:  <%= it.shoppinglistname.name %></h1>
 
-        <ol>
-        <% it.items.forEach((item) => { %>
-            <li>
-                <% if (item.collected === true) { %>
-                <del style="text-decoration: line-through;"><%= item.name %></del>
-                <% } else { %>
-                <del style="text-decoration: none;"><%= item.name %></del>
-                <% } %>
-                <form method="POST" action="/lists/<%= item.shopping_list_id %>/items/<%= item.id %>/collect">
-                <input type="submit" value="Mark collected"/></form>
-            </li> 
-        <% }); %>
-        </ol>
-    </body>
-</html>
+<h2 data-testid="Header2">Existing items:</h2>
+
+<form method="POST" action="/lists/<%= it.ListId %>/items">
+    Add new item: <input type="text" name="itemName" data-testid="InputField1" />
+    <input type="submit" value="Add item to list" data-testid="SubmitButton1"/>
+</form>
+
+<% it.items.sort( (a,b) => a.name.localeCompare(b.name) ) %> 
+<ul>
+    <ol type="a">
+    <% it.items.forEach((item) => { %>
+        <% if (item.collected === false) { %>
+        <li>
+            <del style="text-decoration: none;" data-testid="ListItem1"><%= item.name %></del> 
+            <form data-testid="SubmitButton2" method="POST" action="/lists/<%= item.shopping_list_id %>/items/<%= item.id %>/collect"> 
+                <input type="submit" value="Mark collected"/>
+            </form>
+        </li>
+        <%}%>
+    <% }); %>
+    </ol>
+
+    <ol type="a">
+    <% it.items.forEach((item) => { %>
+        <% if (item.collected === true) { %>
+        <li>
+            <del style="text-decoration: line-through;" data-testid="ListItem2"><%= item.name %></del>
+        </li>
+        <% } %>
+    <% }); %>
+    </ol>
+</ul>
