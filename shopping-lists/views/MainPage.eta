@@ -10,12 +10,12 @@
 <% if (it.shoppinglists.shoppinglists != 0) { %>
   <p>Shopping lists: <%= it.shoppinglists.shoppinglists %></p>
 <% } else { %>
-  <p> No shopping lists yet </p>
+  <p> No shopping lists yet. </p>
 <% } %>
 
 
 <% if (it.items.items != 0) { %>
   <p>Shopping list items: <%= it.items.items%></p>
 <% } else { %>
-  <p> No items yet </p>
+  <p> No items yet. </p>
 <% } %>
