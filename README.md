@@ -33,7 +33,7 @@ https://wsd-courseproject1.onrender.com/
 To run the project locally download this repository, and then add file called project.env to the files. You have to write usernames and passwords to the env file.
 
 Template for project.env:
-
+```
 # Database configuration for PostgreSQL (running in container called "database-p1-5d92aa2f-6247-459b-bbf3-de879ecb4bd2")
 POSTGRES_USER=
 POSTGRES_PASSWORD=
@@ -50,4 +50,4 @@ PGPASSWORD=
 PGHOST=database-p1-5d92aa2f-6247-459b-bbf3-de879ecb4bd2
 PGPORT=5432
 PGDATABASE=database
-
+```
