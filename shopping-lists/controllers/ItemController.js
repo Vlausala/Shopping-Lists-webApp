@@ -32,7 +32,7 @@ const AddItem = async (request) => {
     const ItemName = formData.get("itemName");
 
     // If name is blanck, do not call the service
-    if ( ItemName === ""){
+    if ( ItemName === "" || ItemName === "null"){
         return redirectTo(`/lists/${ListId}`); 
 
     // Call service
