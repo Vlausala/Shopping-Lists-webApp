@@ -31,8 +31,15 @@ const AddItem = async (request) => {
     const formData = await request.formData();
     const ItemName = formData.get("itemName");
 
-    await AddListItem(ListId, ItemName);
-    return redirectTo(`/lists/${ListId}`);
+    // If name is blanck, do not call the service
+    if ( ItemName === ""){
+        return redirectTo(`/lists/${ListId}`); 
+
+    // Call service
+    } else{
+        await AddListItem(ListId, ItemName);
+        return redirectTo(`/lists/${ListId}`);   
+    }
 }
 
 const CollectItem = async (request) => {
