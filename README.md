@@ -1,4 +1,4 @@
-# Course-Project-1
+# Shopping lists application
 Author: Valtteri Lausala
 Date: 20.3.2023 
 
@@ -21,12 +21,6 @@ The application follows the client-server- database architeture and implements f
 
 ![image](https://user-images.githubusercontent.com/65358249/226315253-294f57e6-b327-40ea-a1aa-afbdecd3b981.png)
 
-
-
-## Access
-
-The application is hosted on render, and can be accessed from: 
-https://wsd-courseproject1.onrender.com/
 
 ## Running locally
 
