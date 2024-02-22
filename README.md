@@ -3,7 +3,6 @@ Author: Valtteri Lausala
 Date: 20.3.2023 
 
 Name: vlausalas-shoppinglist
-This documentation is for Course project 1 in course Web Software Development
 
 ## Table of contents
 
